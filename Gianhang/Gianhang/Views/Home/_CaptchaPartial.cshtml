@@ -1,0 +1,11 @@
+@Html.DevExpress().Captcha(settings => {
+    settings.Name = "Captcha";
+    settings.CallbackRouteValues = new { Controller = "Home", Action = "CaptchaPartial" };
+
+    settings.CharacterSet = "asdfghjkl321654987";//co the su dung dong lenh nay hoac khong
+    settings.CodeLength = 5;
+    settings.TextBox.Position = DevExpress.Web.Captcha.ControlPosition.Bottom;
+    settings.ValidationSettings.RequiredField.IsRequired = true;
+    settings.ValidationSettings.RequiredField.ErrorText = "Input the code";
+    settings.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
+}).GetHtml()

@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "ImageSlider";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@Html.DevExpress().ImageSlider(
+    settings => {
+        settings.Name = "ImageSlider";
+        settings.ShowNavigationBar = true;
+
+        settings.SettingsImageArea.ItemTextVisibility = ElementVisibilityMode.OnMouseOver;
+        settings.SettingsImageArea.NavigationButtonVisibility = ElementVisibilityMode.OnMouseOver;
+        settings.SettingsImageArea.ImageSizeMode = ImageSizeMode.FillAndCrop;
+        //settings.SettingsSlideShow.PlayPauseButtonVisibility = ElementVisibilityMode.Always;
+                            }
+).BindToFolder(@"~\Content\Images").GetHtml()
+

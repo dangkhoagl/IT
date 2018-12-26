@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewBag.Title = "FileManager";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.Action("FileManagerPartial")
+    }
+

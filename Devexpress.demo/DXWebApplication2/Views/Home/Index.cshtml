@@ -1,0 +1,13 @@
+@model System.Collections.IEnumerable
+
+@Html.Partial("GridViewPartialView", Model)
+
+@using (Html.BeginForm())
+{
+    @Html.Action("HtmlEditor2Partial")
+}
+
+@using (Html.BeginForm())
+{
+    @Html.Action("FileManagerPartial")
+}

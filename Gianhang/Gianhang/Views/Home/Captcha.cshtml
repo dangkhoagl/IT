@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "Captcha";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Captcha</h2>
+
+@ViewBag.ok
+
+@using (Html.BeginForm("CaptchaPatial","Home",FormMethod.Post, new { enctype = "multipart/form-data"}))
+{
+    @Html.Action("CaptchaPartial")
+
+    @Html.DevExpress().Button(setting => 
+    {
+        setting.Text = "Submit";
+        setting.UseSubmitBehavior = true;
+        setting.Name = "Submit";
+    }).GetHtml()
+
+}

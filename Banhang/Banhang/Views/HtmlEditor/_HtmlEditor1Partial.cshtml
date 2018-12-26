@@ -1,0 +1,15 @@
+@using Banhang.Controllers;
+
+@Html.DevExpress().HtmlEditor(settings => {
+    settings.Name = "HtmlEditor1";
+    settings.CallbackRouteValues = new { Controller = "HtmlEditor", Action = "HtmlEditor1Partial" };
+    settings.Width = 500;
+	settings.ToolbarMode = HtmlEditorToolbarMode.Menu;
+
+    	settings.SettingsDialogs.InsertImageDialog.SettingsImageUpload.UploadCallbackRouteValues = new { Controller = "HtmlEditor", Action = "HtmlEditor1PartialImageUpload" };
+    settings.SettingsDialogs.InsertImageDialog.SettingsImageUpload.UploadFolder = HtmlEditorControllerHtmlEditor1Settings.ImageUploadDirectory;
+	settings.SettingsDialogs.InsertImageDialog.SettingsImageUpload.ValidationSettings.Assign(HtmlEditorControllerHtmlEditor1Settings.ImageUploadValidationSettings);
+		
+				
+			settings.SettingsDialogs.InsertImageDialog.SettingsImageSelector.Assign(HtmlEditorControllerHtmlEditor1Settings.ImageSelectorSettings);			
+	}).GetHtml()

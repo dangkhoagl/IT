@@ -1,0 +1,9 @@
+@model CuaHangOnline.Model.SchedulerDataSource
+
+@{
+    var scheduler = Html.DevExpress().Scheduler(CuaHangOnline.Model.SchedulerHelper.Settings);
+    if(ViewBag.GeneralError != null) {
+        scheduler.SetErrorText(ViewBag.GeneralError);
+    }
+}
+@scheduler.Bind(Model.Appointments, Model.Resources).GetHtml()

@@ -1,0 +1,16 @@
+@using DXWebApplication2.Controllers;
+
+@Html.DevExpress().HtmlEditor(settings => {
+    settings.Name = "HtmlEditor2";
+    settings.CallbackRouteValues = new { Controller = "Home", Action = "HtmlEditor2Partial" };
+    settings.Width = 500;
+    settings.Height = 600;
+    settings.ToolbarMode = HtmlEditorToolbarMode.Menu;
+
+    settings.SettingsDialogs.InsertImageDialog.SettingsImageUpload.UploadCallbackRouteValues = new { Controller = "Home", Action = "HtmlEditor2PartialImageUpload" };
+    settings.SettingsDialogs.InsertImageDialog.SettingsImageUpload.UploadFolder = HomeControllerHtmlEditor2Settings.ImageUploadDirectory;
+    settings.SettingsDialogs.InsertImageDialog.SettingsImageUpload.ValidationSettings.Assign(HomeControllerHtmlEditor2Settings.ImageUploadValidationSettings);
+
+
+    settings.SettingsDialogs.InsertImageDialog.SettingsImageSelector.Assign(HomeControllerHtmlEditor2Settings.ImageSelectorSettings);
+}).GetHtml()

@@ -1,0 +1,15 @@
+<div class="footerMenu">
+        @* DXCOMMENT: Configure the footer menu *@
+    @Html.DevExpress().Menu(settings => {
+        settings.Name = "FooterMenu";
+        settings.EnableHotTrack = false;
+        settings.Styles.Style.Border.BorderWidth = System.Web.UI.WebControls.Unit.Pixel(0);
+        settings.Styles.Style.Paddings.Padding = System.Web.UI.WebControls.Unit.Pixel(0);
+    }).BindToXML(HttpContext.Current.Server.MapPath("~/App_Data/TopMenu.xml"), "/items/*").GetHtml()
+</div>
+<div class="copyright">
+    @Html.DevExpress().Label(settings => {
+        settings.EncodeHtml = false;
+        settings.Text = DateTime.Now.Year + " &copy; Copyright by [company name]";
+    }).GetHtml()
+</div>

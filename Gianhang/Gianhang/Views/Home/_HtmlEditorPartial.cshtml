@@ -1,0 +1,16 @@
+@using Gianhang.Controllers;
+
+@Html.DevExpress().HtmlEditor(settings => {
+    settings.Name = "HtmlEditor";
+    settings.CallbackRouteValues = new { Controller = "Home", Action = "HtmlEditorPartial" };
+    settings.Width = 1000;
+    settings.Height = 600;
+    settings.ToolbarMode = HtmlEditorToolbarMode.Menu;
+
+    settings.SettingsDialogs.InsertImageDialog.SettingsImageUpload.UploadCallbackRouteValues = new { Controller = "Home", Action = "HtmlEditorPartialImageUpload" };
+    settings.SettingsDialogs.InsertImageDialog.SettingsImageUpload.UploadFolder = HomeControllerHtmlEditorSettings.ImageUploadDirectory;
+    settings.SettingsDialogs.InsertImageDialog.SettingsImageUpload.ValidationSettings.Assign(HomeControllerHtmlEditorSettings.ImageUploadValidationSettings);
+
+
+            settings.SettingsDialogs.InsertImageDialog.SettingsImageSelector.Assign(HomeControllerHtmlEditorSettings.ImageSelectorSettings);
+    }).GetHtml()

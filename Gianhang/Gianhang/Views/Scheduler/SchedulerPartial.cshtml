@@ -1,0 +1,9 @@
+@model Gianhang.Model.SchedulerDataSource
+
+@{
+    var scheduler = Html.DevExpress().Scheduler(Gianhang.Model.SchedulerHelper.Settings);
+    if(ViewBag.GeneralError != null) {
+        scheduler.SetErrorText(ViewBag.GeneralError);
+    }
+}
+@scheduler.Bind(Model.Appointments, Model.Resources).GetHtml()
